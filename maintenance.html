@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <title>Maintenance!</title>
+    <meta charset="utf-8"/>
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://turbolabit.github.io/html-pages/asset/icons/toolbox.ico">
+    <link rel="shortcut icon" href="https://turbolabit.github.io/html-pages/asset/icons/toolbox.ico" >
+    <meta http-equiv="refresh" content="90">
+    <style>
+        body { text-align: center; padding: 20px; font: 20px Helvetica, sans-serif; color: #333; }
+        @media (min-width: 768px){
+            body{ padding-top: 150px; }
+        }
+        h1 { font-size: 50px; }
+        article { display: block; text-align: left; max-width: 650px; margin: 0 auto; }
+        .d-none { display: none; }
+        a { color: #dc8100; text-decoration: none; }
+        a:hover { color: #333; text-decoration: none; }
+    </style>
+</head>
+<body>
+<article>
+
+    <noscript>🧰 Maintenance in progress, please wait....</noscript>
+
+    <div id="it" class="d-none">
+        <h1>🔧 Manutenzione in corso</h1>
+        <div>
+            <p>
+                Stiamo svolgendo un intervento di manutenzione. Il sito sarà nuovamente disponibile fra alcuni minuti.
+            </p>
+            <p>💡 Non chiudere questa pagina...</p>
+        </div>
+        <span class="title d-none">Manutenzione in corso...</span>
+    </div>
+
+    <div id="en" class="d-none">
+        <h1>🔧 We&rsquo;ll be back soon!</h1>
+        <div>
+            <p>
+                Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment.
+                We&rsquo;ll be back online shortly!
+            </p>
+            <p>💡 Don't close this page...</p>
+        </div>
+        <span class="title d-none">Maintenance in progress...</span>
+    </div>
+
+    <div><p id="now"></p></div>
+</article>
+
+<script>
+
+    let lang = window.navigator.userLanguage || window.navigator.language || 'en';
+    lang = lang.slice(0, 2).toLowerCase();
+
+    let div = document.getElementById(lang) || document.getElementById('en');
+    div.classList.remove("d-none");
+
+    //
+    document.querySelector('title').textContent = div.querySelector('.title').textContent;
+
+    //
+    let oNow = new Date();
+    document.getElementById('now').textContent = oNow.toLocaleString(lang);
+
+</script>
+
+</body>
+</html>
