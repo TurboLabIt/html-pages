@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <title>Page not found</title>
+    <meta charset="utf-8"/>
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://turbolabit.github.io/html-pages/asset/icons/toolbox.ico">
+    <link rel="shortcut icon" href="https://turbolabit.github.io/html-pages/asset/icons/toolbox.ico" >
+    <meta http-equiv="refresh" content="90">
+    <style>
+        body { text-align: center; padding: 20px; font: 20px Helvetica, sans-serif; color: #333; }
+        @media (min-width: 768px){
+            body{ padding-top: 150px; }
+        }
+        h1 { font-size: 50px; }
+        article { display: block; text-align: left; max-width: 650px; margin: 0 auto; }
+        .d-none { display: none; }
+        a { color: #dc8100; text-decoration: none; }
+        a:hover { color: #333; text-decoration: none; }
+    </style>
+</head>
+<body>
+<article>
+
+    <noscript>💔 Page not found :-/</noscript>
+
+    <div id="it" class="d-none">
+        <h1>💔 Pagina non trovata</h1>
+        <div>
+            <p>
+                Oh no, la pagina che stai cercando non esiste oppure è stata eliminata o spostata.
+            </p>
+            <p>💡 <a href="javascript:history.back()">Torna indietro</a> </p>
+        </div>
+    </div>
+
+    <div id="en" class="d-none">
+        <h1>💔 Page not found</h1>
+        <div>
+            <p>
+                The page you're looking for doesn't exist, or has been deleted/moved.
+            </p>
+            <p>💡 <a href="javascript:history.back()">Go back</a> </p>
+        </div>
+    </div>
+
+    <div><p id="now"></p></div>
+</article>
+
+<script>
+
+    let lang = window.navigator.userLanguage || window.navigator.language || 'en';
+    lang = lang.slice(0, 2).toLowerCase();
+
+    let div = document.getElementById(lang) || document.getElementById('en');
+    div.classList.remove("d-none");
+
+    //
+    document.querySelector('title').textContent = div.querySelector('.title').textContent;
+
+    //
+    let oNow = new Date();
+    document.getElementById('now').textContent = oNow.toLocaleString(lang);
+
+</script>
+
+</body>
+</html>
