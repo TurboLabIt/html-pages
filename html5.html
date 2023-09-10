@@ -51,16 +51,12 @@
 
         {#<link rel="alternate" type="application/rss+xml" title="Feed" href="{{ url('app_feed') }}" />#}
 
-        {% if Paginator is defined %}
+        {% if Paginator.PreviousPage is defined and Paginator.PreviousPage is not empty %}
+            <link rel="prev" href="{{ Paginator.PreviousPage.url }}">
+        {% endif %}
 
-            {% if Paginator.PreviousPage is not empty %}
-                <link rel="prev" href="{{ Paginator.PreviousPage.url }}">
-            {% endif %}
-
-            {% if Paginator.NextPage is not empty %}
-                <link rel="next" href="{{ Paginator.NextPage.url }}">
-            {% endif %}
-
+        {% if Paginator.NextPage is defined and Paginator.NextPage is not empty %}
+            <link rel="next" href="{{ Paginator.NextPage.url }}">
         {% endif %}
 
         {% block fonts %}
