@@ -15,7 +15,6 @@
 
 <head>
 {% block htmlHeadContent %}
-
     <meta charset="utf-8">
 
     <title>{% block metaTitle %}{{ metaTitle }}{{ metaTitleSuffix ?? "" }}{% endblock %}</title>
@@ -41,7 +40,7 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    {#<link rel="alternate" type="application/rss+xml" title="Feed" href="{{ url('app_feed') }}" />#}
+    <link rel="alternate" type="application/rss+xml" title="Feed" href="{{ url('app_feed') }}" />
 
     {% if Paginator is defined and Paginator.PreviousPage is not empty %}
         <link rel="prev" href="{{ Paginator.PreviousPage.url }}">
@@ -84,31 +83,31 @@
 
 <body>
 {% block htmlBodyContent %}
-
+    
     {% block gtmBody %}
         {% if gtm is defined %}
-        <!-- Google Tag Manager (GTM) -->
-        <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id={{ gtm }}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-        </noscript>
-        <!-- End Google Tag Manager (GTM) -->
+            <!-- Google Tag Manager (GTM) -->
+            <noscript>
+                <iframe src="https://www.googletagmanager.com/ns.html?id={{ gtm }}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            </noscript>
+            <!-- End Google Tag Manager (GTM) -->
         {% endif %}
     {% endblock %}
-
-        {# 📚 https://www.w3schools.com/html/html5_semantic_elements.asp #}
-
+    
+    {# 📚 https://www.w3schools.com/html/html5_semantic_elements.asp #}
+    
     {% block htmlHeader %}<header>{% block htmlHeaderContent %}Test htmlHeaderContent{% endblock %}</header>{% endblock %}
-
+    
     {% block htmlNav %}<nav>{% block htmlNavContent %}Test htmlNavContent{% endblock %}</nav>{% endblock %}
-
+    
     {% block htmlSection %}<section>{% block htmlSectionContent %}Test htmlSectionContent{% endblock %}</section>{% endblock %}
-
+    
     {% block htmlArticle %}<article>{% block htmlArticleContent %}Test htmlArticleContent{% endblock %}</article>{% endblock %}
-
+    
     {% block htmlAside %}<aside>{% block htmlAsideContent %}Test htmlAsideContent{% endblock %}</aside>{% endblock %}
-
+    
     {% block htmlFooter %}<footer>{% block htmlFooterContent %}Test htmlFooterContent{% endblock %}</footer>{% endblock %}
-
+    
     {% block javascriptss %}
         {# 📚 https://releases.jquery.com #}
         {# 📚 https://developers.google.com/speed/libraries #}
@@ -118,5 +117,4 @@
 
 {% endblock %}
 </body>
-
 </html>
